@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Wiki::Application.load_tasks
+Blocipedia::Application.load_tasks

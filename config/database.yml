@@ -25,7 +25,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  database: wiki_production
+  database: blocipedia_production
   host: localhost
   pool: 5
   timeout: 5000
