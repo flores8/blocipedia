@@ -1,7 +1,7 @@
-Wiki
+Blocipedia
 ===
 
-Wiki that allows users to create public and private Markdown-based wikis.
+Blocipedia will allow users to create public and private Markdown-based wikis.
 
 __Purpose:__ Allow users a place to write or collaborate with others on a project. 
 

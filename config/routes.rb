@@ -1,4 +1,4 @@
-Wiki::Application.routes.draw do
+Blocipedia::Application.routes.draw do
   devise_for :users
   root to: 'pages#index'
 
