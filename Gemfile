@@ -8,9 +8,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
-group :development do 
+group :development, :test do 
 	gem 'sqlite3'
 	gem 'rspec-rails'
+	gem 'factory_girl_rails', '~> 4.0'
+	gem 'database_cleaner'
 end
 
 group :production do 
@@ -27,3 +29,4 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'figaro'
 gem 'thin'
+gem 'pry'
