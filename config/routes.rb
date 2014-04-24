@@ -1,8 +1,11 @@
 Blocipedia::Application.routes.draw do
 
-  resources :wikis
+  root to: "welcome#index"
+  resources :wikis do
+    resources :pages
+  end
   devise_for :users
-  root to: 'pages#index'
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
