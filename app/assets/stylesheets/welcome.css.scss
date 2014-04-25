@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 @import "bootstrap";
 
@@ -38,6 +38,22 @@ $brown: 											 #D0A570 !default;
 		background-color: darken($bg_color, 5%);
 		color: $color;
 		@include transition (.4s);
+	}
+}
+
+@mixin ghost-button ($color, $font, $seconds-off, $seconds-on) {
+	border: 2px solid $color;
+	@include border-radius(2px);
+	padding: 1em 3em;
+	display: inline-block;
+	margin: 2em 0;
+	font-size: $font;
+	@include transition ($seconds-off);
+	&:hover {
+		text-decoration: none;
+		background-color: $color;
+		color: $white;
+		@include transition ($seconds-on);
 	}
 }
 
@@ -83,6 +99,32 @@ $brown: 											 #D0A570 !default;
 	background: $blue !important; 
 }
 
+.alert {
+	margin-bottom: 0;
+	padding: 1.5em 2em;
+	border: none;
+	@include border-radius(0px);
+	font-size: 1.5em;
+	font-family: 'Source Sans Pro', 'sans-serif';
+	@include font-smoothing(on);
+}
+.alert-success {
+	background-color: $purple;
+	color: $white;
+}
+.alert-info {
+	background-color: $blue;
+	color: $white;
+}
+.alert-warning {
+	background-color: $white;
+	color: $red;
+}
+.alert-danger {
+	background-color: $red;
+	color: $white;
+}
+
 /* Home Page
 ================================================== */
 div.home-big-image {
@@ -90,7 +132,7 @@ div.home-big-image {
 	padding: 12em 0;
 	text-align: center;
 	color: $white;
-	font-family: 'Lato', 'sans-serif';
+	font-family: 'Source Sans Pro', 'sans-serif';
 	h2 {
 		padding-bottom: 1em;
 		font-size: 1.5em;
@@ -108,13 +150,39 @@ div.home-big-image {
 div.benefits {
 	text-align: center;
 	padding: 8em 0;
-	font-family: 'Lato', 'sans-serif';
+	font-family: 'Source Sans Pro', 'sans-serif';
 	background-color: $light;
 	color: $gray;
-	span.glyphicon {
-		font-size: 3em;
-	}
-	h3 {
+	div.benefit-item {
+		padding: 0 2.8em;
+		hr {
+			border-top: 1px solid lighten($gray, 50%);
+			margin: 2em 0;
+		}
+		span.glyphicon {
+			font-size: 3em;
+			color: lighten($gray, 10%);
+		}
+		h3 {
+			margin-top: 1em;
+			font-size: 1.5em;
+		}
+		p {
+			padding: 0 1em;
+		}
+	}		
+}
 
+div.choose-plan {
+	padding: 10em 0;
+	p {
+		font-family: 'Source Sans Pro', 'sans-serif';
+		font-size: 1.6em;
+		font-weight: 300;
+		color: $gray;
+	}
+	a {
+		@include ghost-button ($red, 1.5em, .4s, .4s);
+		color: $red;
 	}
 }
