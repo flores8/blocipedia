@@ -169,6 +169,7 @@ div.benefits {
 		}
 		p {
 			padding: 0 1em;
+			font-size: 1.1em;
 		}
 	}		
 }
@@ -184,5 +185,8 @@ div.choose-plan {
 	a {
 		@include ghost-button ($red, 1.5em, .4s, .4s);
 		color: $red;
+	}
+	div.paid, div.free {
+		margin-bottom: 20em;
 	}
 }
