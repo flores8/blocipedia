@@ -1,6 +1,49 @@
-<div class="container">
-	<div class="row">
-		<h1>Create a Wiki, collaborate with friends.</h1>
+<div class="home-big-image">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Create a Wiki</h1>
+				<h2>collaborate with friends</h2>
+				<div id="home-call-above-fold">
+					<% if user_signed_in? %>
+						<%= link_to "View My Wikis", wikis_path %>
+					<% else %>
+						<%= link_to "Get My Free Account", new_user_registration_path %>
+					<% end %>
+				</div>
+			</div><!-- div.col-md-12 --> 
+		</div><!-- div.row --> 
+	</div><!-- div.container --> 
+</div><!-- div.home-big-image --> 
 
+<div class="benefits">
+	<div class="container">
+		<div class="row">
+
+			<!-- Design --> 
+			<div class="col-md-4">
+				<span class="glyphicon glyphicon-heart"></span>
+				<h3>Beautiful Design</h3>
+				<hr>
+				<p>Create and share pages that you enjoy writing.</p>
+			</div>
+
+			<!-- Design --> 
+			<div class="col-md-4">
+				<span class="glyphicon glyphicon-time"></span>
+				<h3>Fast and Easy</h3>
+				<hr>
+				<p>Making wikis should be this easy.</p>
+			</div>
+
+			<!-- Design --> 
+			<div class="col-md-4">
+				<span class="glyphicon glyphicon-user"></span>
+				<h3>Collaborate</h3>
+				<hr>
+				<p>Share and collaborate with anyone.</p>
+			</div>
+
+		</div>
 	</div>
 </div>
