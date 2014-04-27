@@ -1,9 +1,7 @@
 Blocipedia::Application.routes.draw do
-
+  resources :pages
   root to: "welcome#index"
-  resources :wikis do
-    resources :pages
-  end
+  resources :wikis
   devise_for :users
   
 
