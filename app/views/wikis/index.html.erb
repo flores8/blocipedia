@@ -1,6 +1,11 @@
 <div class="container">
 	<h1>All Wikis:</h1>
-	<% @wikis.each do |w| %>
-		<p><%= link_to w.name, w %></p>
+	<% if @wikis.count > 0 %>
+		<% @wikis.each do |w| %>
+			<p><%= link_to w.name, w %></p>
+		<% end %>
+	<% else %>
+		<h3>Create your first wiki!</h3>
+		<%= render partial: 'form', locals: { wiki: @wiki} %>
 	<% end %>
 </div>
