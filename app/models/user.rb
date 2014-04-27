@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   # Associations
   has_many :wikis, dependent: :destroy
+  has_many :pages, dependent: :destroy
 end
