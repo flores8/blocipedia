@@ -5,6 +5,9 @@
 			<h1><%= @page.title %></h1>
 			<%= link_to "Edit", edit_page_path(@page) %> | <%= link_to "Delete Page", page_path(@page), method: :delete %>
 			<p><%= @page.body %></p>
+			<small>
+				Page created by: <%= @page.user.name %> <%= time_ago_in_words(@page.created_at) %> ago.
+			</small>
 		</div>
 	</div>
 </div>
