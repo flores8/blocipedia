@@ -21,4 +21,19 @@ class PagesController < ApplicationController
   		render :new
   	end
   end
+
+  def edit
+  	@page = Page.find(params[:id])
+  end
+
+  def update
+  	@page = Page.find(params[:id])
+  	if @page.update_attributes(params.require(:page).permit(:title, :body))
+  		flash[:notice] = "Your page was updated!"
+  		redirect_to @page
+  	else
+  		flash[:error] = "Your page was not saved. Please try again."
+  		render :edit
+  	end
+  end
 end
