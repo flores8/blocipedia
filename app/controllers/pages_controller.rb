@@ -36,4 +36,15 @@ class PagesController < ApplicationController
   		render :edit
   	end
   end
+
+  def destroy
+  	@page = Page.find(params[:id])
+  	if @page.destroy
+  		flash[:notice] = "Your page was removed."
+  		redirect_to pages_path
+  	else
+  		flash[:error] = "There was a problem removing your page. Please try again."
+  		redirect_to :back
+  	end
+  end
 end
