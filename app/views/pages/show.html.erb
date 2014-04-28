@@ -2,9 +2,9 @@
 	<div class="row">
 		<div class="col-md-12">
 			<%= link_to "< All Pages", pages_path %>
-			<h1><%= @page.title %></h1>
+			<h1><%= markdown @page.title %></h1>
 			<%= link_to "Edit", edit_page_path(@page) %> | <%= link_to "Delete Page", page_path(@page), method: :delete %>
-			<p><%= @page.body %></p>
+			<p><%= markdown @page.body %></p>
 			<small>
 				Page created by: <%= @page.user.name %> <%= time_ago_in_words(@page.created_at) %> ago.
 			</small>

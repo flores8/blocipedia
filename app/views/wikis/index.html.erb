@@ -5,6 +5,7 @@
 			<p><%= link_to w.name, w %></p>
 			<small>
 				Wiki created by: <%= w.user.name.present? ? w.user.name : w.user.email %> <%= time_ago_in_words(w.created_at) %> ago.
+				<!-- Longer way of doing this is: if w.user.name.present? then w.user.name else w.user.email end --> 
 			</small>
 		<% end %>
 	<% else %>
