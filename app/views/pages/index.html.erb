@@ -2,7 +2,7 @@
 	<div class="row">
 		<h1>Pages index page</h1>
 		<% @pages.each do |p| %>
-			<h2><%= link_to p.title, p %></h2>
+			<h2><%= link_to p.title, p(@wiki, p) %></h2>
 		<% end %>
 	</div>
 </div>

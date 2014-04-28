@@ -2,5 +2,13 @@
 	<div class="row">
 		<%= link_to "< All Wikis", wikis_path %>
 		<h1><%= @wiki.name %></h1>
+		<% if @pages.count > 0 %>
+			<% @pages.each do |p| %>
+				<h3><%= link_to p.title, p(@wiki, p) %></h3>
+				<p><%= p.body %></p>
+			<% end %>
+		<% else %>
+			<p>No pages yet.</p>
+		<% end %>
 	</div>
 </div>

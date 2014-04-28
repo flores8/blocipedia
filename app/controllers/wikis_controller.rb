@@ -8,6 +8,7 @@ class WikisController < ApplicationController
 
   def show
   	@wiki = Wiki.find(params[:id])
+    @pages = @wiki.pages.includes(:user)
   end
 
   def new

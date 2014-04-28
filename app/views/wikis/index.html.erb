@@ -2,7 +2,7 @@
 	<h1>All Wikis:</h1>
 	<% if @wikis.count > 0 %>
 		<% @wikis.each do |w| %>
-			<p><%= link_to w.name, w %></p>
+			<p><%= link_to w.name, w %> (<%= w.pages.count %> pages)</p>
 			<small>
 				Wiki created by: <%= w.user.name.present? ? w.user.name : w.user.email %> <%= time_ago_in_words(w.created_at) %> ago.
 				<!-- Longer way of doing this is: if w.user.name.present? then w.user.name else w.user.email end --> 
