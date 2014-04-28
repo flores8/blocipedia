@@ -3,9 +3,13 @@
 	<% if @wikis.count > 0 %>
 		<% @wikis.each do |w| %>
 			<p><%= link_to w.name, w %></p>
+			<small>
+				Wiki created by: <%= w.user.name.present? ? w.user.name : w.user.email %> <%= time_ago_in_words(w.created_at) %> ago.
+			</small>
 		<% end %>
 	<% else %>
 		<h3>Create your first wiki!</h3>
 		<%= render partial: 'form', locals: { wiki: @wiki} %>
+		
 	<% end %>
 </div>

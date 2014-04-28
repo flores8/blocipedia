@@ -3,6 +3,7 @@ Blocipedia::Application.routes.draw do
   root to: "welcome#index"
   resources :wikis
   devise_for :users
+  resources :users, only: [:update] # in order to update account information like your name
   
 
 
