@@ -1,0 +1,8 @@
+%div.container
+	%div.row
+		%div.col-md-12
+			= form_for charges_path do
+				= hidden_field_tag :amount, @stripe_btn_hash[:data][:amount]
+
+				%h4 Click the button!
+				%script{ @stripe_btn_hash }

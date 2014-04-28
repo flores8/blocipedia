@@ -9,6 +9,9 @@ Blocipedia::Application.routes.draw do
   
   devise_for :users
   resources :users, only: [:update] # in order to update account information like your name
+
+  resources :charges, only: [:new, :create]
+  # post 'charges/new' => 'charges#new'
   
 
 
