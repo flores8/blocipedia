@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<%= link_to "< All Wikis", wikis_path %>
+			<%= link_to "< Back to #{@wiki.name} Wiki", @wiki %>
 			<h1><%= markdown @page.title %></h1>
 			<%= link_to "Edit", edit_wiki_page_path(@wiki, @page) %> | <%= link_to "Delete Page", wiki_page_path(@wiki, @page), method: :delete %>
 			<p><%= markdown @page.body %></p>
