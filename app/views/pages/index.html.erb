@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="row">
-		<h1>Pages index page</h1>
+		<h1>All My Pages:</h1>
 		<% @pages.each do |page| %>
 			<p>
-				<%= link_to (markdown page.title), [page.wiki, page] %> [<%= page.wiki.name %>]
+				<%# link_to (markdown page.title), [page.wiki, page] %> [<%= page.wiki.name %>]
 				<br>Updated <%= time_ago_in_words(page.updated_at) %> ago.
 			</p>
 		<% end %>
