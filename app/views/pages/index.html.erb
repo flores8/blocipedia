@@ -1,11 +1,15 @@
 <div class="container">
 	<div class="row">
 		<h1>All My Pages:</h1>
-		<% @pages.each do |page| %>
-			<p>
-				<%# link_to (markdown page.title), [page.wiki, page] %> [<%= page.wiki.name %>]
-				<br>Updated <%= time_ago_in_words(page.updated_at) %> ago.
-			</p>
+		<% if @pages.count > 0 %>
+			<% @pages.each do |page| %>
+				<p>
+					<%= link_to (markdown page.title), [page.wiki, page] %> [<%= page.wiki.name %>]
+					<br>Updated <%= time_ago_in_words(page.updated_at) %> ago.
+				</p>
+			<% end %>
+		<% else %>
+			Sorry, no pages yet.  <%= link_to "Find a wiki", wikis_path %> or <%= link_to "create one now.", new_wiki_path %>
 		<% end %>
 	</div>
 </div>
