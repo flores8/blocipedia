@@ -60,8 +60,6 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    haml (4.0.5)
-      tilt
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -178,7 +176,6 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   faker
   figaro
-  haml
   jbuilder (~> 1.2)
   jquery-rails
   pg
