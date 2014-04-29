@@ -7,7 +7,7 @@ class WikisController < ApplicationController
   end
 
   def show
-  	@wiki = Wiki.find(params[:id])
+  	@wiki = Wiki.friendly.find(params[:id])
     @pages = @wiki.pages.includes(:user)
   end
 
@@ -16,7 +16,7 @@ class WikisController < ApplicationController
   end
 
   def create
-  	@wiki = current_user.wikis.build(params.require(:wiki).permit(:name))
+  	@wiki = current_user.wikis.build( wiki_params )
   	if @wiki.save
   		flash[:notice] = "Your wiki was created."
   		redirect_to @wiki
@@ -27,12 +27,12 @@ class WikisController < ApplicationController
   end
 
   def edit
-  	@wiki = Wiki.find(params[:id])
+  	@wiki = Wiki.friendly.find(params[:id])
   end
 
   def update
-  	@wiki = Wiki.find(params[:id])
-  	if @wiki.update_attributes(params.require(:wiki).permit(:name))
+  	@wiki = Wiki.friendly.find(params[:id])
+  	if @wiki.update_attributes( wiki_params )
   		flash[:notice] = "Your wiki has been updated."
   		redirect_to @wiki
   	else
@@ -42,7 +42,7 @@ class WikisController < ApplicationController
   end
 
   def destroy
-  	@wiki = Wiki.find(params[:id])
+  	@wiki = Wiki.friendly.find(params[:id])
   	if @wiki.destroy
   		flash[:notice] = "Your wiki was removed"
   		redirect_to wikis_path
@@ -50,5 +50,11 @@ class WikisController < ApplicationController
   		flash[:notice] = "Your wiki was not removed. Please try again."
   		redirect_to :back
   	end
+  end
+
+  private
+
+  def wiki_params
+    params.require(:wiki).permit(:name, :slug)
   end
 end

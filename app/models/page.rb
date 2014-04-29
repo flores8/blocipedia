@@ -1,4 +1,7 @@
 class Page < ActiveRecord::Base
+	extend FriendlyId
+	friendly_id :title, use: [:slugged, :history]
+
   belongs_to :wiki
   belongs_to :user
 
