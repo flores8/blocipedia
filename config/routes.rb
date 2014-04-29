@@ -11,6 +11,7 @@ Blocipedia::Application.routes.draw do
   resources :users, only: [:update] # in order to update account information like your name
 
   resources :charges, only: [:new, :create]
+  get 'charges/confirmation' => 'charges#confirmation'
   # post 'charges/new' => 'charges#new'
   
 

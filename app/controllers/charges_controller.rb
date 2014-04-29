@@ -29,13 +29,16 @@ class ChargesController < ApplicationController
 			currency: 'usd'
 			)
 		flash[:success] = "Congratulations, you now have access to preium wikis"
-		redirect_to wikis_path
+		redirect_to charges_confirmation_path
 
 		# Stripe will send back CardErrors, with friendly messages when something goes wrong.
 		# This rescue block catches and displays those errors.
 	rescue Stripe::CardError => e
 		flash[:error] = e.message
 		redirect_to new_charge_path
+	end
+
+	def confirmation
 	end
 
 end

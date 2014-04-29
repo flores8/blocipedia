@@ -27,7 +27,7 @@ end
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
-gem 'figaro'
+gem 'figaro' # rake figaro:heroku
 gem 'thin'
 gem 'pry'
 gem 'faker'
