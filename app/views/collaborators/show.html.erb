@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2><%= @wiki.name %> <small>(<%= link_to "Edit", new_wiki_path %>)</small></h2>
+			<p><%= @collaborators.count %> <%= "Collaborator".pluralize %>:</p>
+			<% @collaborators.each do |c| %>
+				<p><%= c.user.name %></p>
+			<% end %>
+
+			<p><%= link_to "Add or Remove Collaborators", new_wiki_collaborator_path %></p>
+
+		</div>
+	</div>
+</div>

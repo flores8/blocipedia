@@ -1,0 +1,9 @@
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
+FactoryGirl.define do
+  factory :collaborator do
+    references ""
+    references ""
+    role "MyString"
+  end
+end

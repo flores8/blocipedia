@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1><%= current_user.name.present? ? current_user.name : current_user.email %>'s Wiki Settings</h1>
+			<% if @wikis.count > 0 %>
+				<% @wikis.each do |w| %>
+					<p><%= link_to w.name, new_wiki_collaborator_path(w) %></p> <!-- collaborator_path(w)  -->  
+				<% end %>
+			<% else %>
+				<p>You don't have any wikis.  <%= link_to "Create one now.", new_wiki_path %></p>
+			<% end %>
+		</div>
+	</div>
+</div>

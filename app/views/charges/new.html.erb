@@ -4,7 +4,7 @@
 			<%= form_tag charges_path do %>
 				<%= hidden_field_tag :amount, @stripe_btn_hash[:data][:amount] %>
 				<h4>Click the Button!</h4>
-				<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="Premium Wiki ($12)" data-amount="12_00"></script>
+				<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="Premium Wiki ($12)" data-amount="1200"></script>
 			<% end %>			
 		</div>
 	</div>

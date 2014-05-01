@@ -2,6 +2,7 @@ class WikisController < ApplicationController
 	before_filter :authenticate_user!
 
   def index
+    #binding.pry
   	@wikis = current_user.wikis.all
     @wiki = current_user.wikis.new
   end
@@ -12,6 +13,7 @@ class WikisController < ApplicationController
   end
 
   def new
+    @users = User.all
   	@wiki = Wiki.new
   end
 
@@ -27,6 +29,7 @@ class WikisController < ApplicationController
   end
 
   def edit
+    @users = User.all
   	@wiki = Wiki.friendly.find(params[:id])
   end
 

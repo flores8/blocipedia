@@ -1,0 +1,9 @@
+<div class="container">
+	<div class="row">
+		<h2>Manage Collaborators for Wiki: <%= @wiki.name %></h2>
+		<%= collection_check_boxes(@collaborator, :user_id, User.all, :id, :email) do |b| %>
+			<%= b.label { b.check_box } %>
+		<% end %>
+
+	</div>
+</div>

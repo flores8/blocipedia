@@ -5,6 +5,7 @@ Blocipedia::Application.routes.draw do
 
   resources :wikis do
     resources :pages, except: [:index], controller: 'wikis/pages'
+    resources :collaborators, except: [:edit]
   end
   
   devise_for :users
@@ -12,7 +13,8 @@ Blocipedia::Application.routes.draw do
 
   resources :charges, only: [:new, :create]
   get 'charges/confirmation' => 'charges#confirmation'
-  # post 'charges/new' => 'charges#new'
+
+  
   
 
 
