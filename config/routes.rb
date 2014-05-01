@@ -5,7 +5,7 @@ Blocipedia::Application.routes.draw do
 
   resources :wikis do
     resources :pages, except: [:index], controller: 'wikis/pages'
-    resources :collaborators, except: [:edit]
+    resources :collaborators
   end
   
   devise_for :users

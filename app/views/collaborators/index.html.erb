@@ -1,14 +1,19 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h1><%= current_user.name.present? ? current_user.name : current_user.email %>'s Wiki Settings</h1>
-			<% if @wikis.count > 0 %>
-				<% @wikis.each do |w| %>
-					<p><%= link_to w.name, new_wiki_collaborator_path(w) %></p> <!-- collaborator_path(w)  -->  
-				<% end %>
-			<% else %>
-				<p>You don't have any wikis.  <%= link_to "Create one now.", new_wiki_path %></p>
+			<h1><%= @wiki.name %> Collaborators:</h1>
+			<% @collaborators.each do |c| %>
+				<p><%= c.user.email %></p>
 			<% end %>
+
+			<%= link_to "Edit Collaborators", new_wiki_collaborator_path(@wiki) %>
+			<!-- 
+				1 - Form for 
+				2 - Inside the form loop through all users
+				3 - Display each one on each line
+				4 - Checkbox for each user
+				5 - Create a check to se if they are already a user, if so the box should be checked
+				6 - 
 		</div>
 	</div>
 </div>

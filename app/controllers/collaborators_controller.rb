@@ -1,15 +1,12 @@
 class CollaboratorsController < ApplicationController
   def index
-  	@collaborators = current_user.collaborators.all
-  	@users = User.all
-  	@wikis = current_user.wikis.all
-  	#@collaborator = @users.find(params[:id])
+  	@wiki = Wiki.friendly.find(params[:wiki_id])
+  	@collaborators = @wiki.collaborators
   end
 
   def show
-  	@wiki = Wiki.friendly.find(params[:id])
-  	@collaborators = @wiki.collaborators.all
-  	#@wiki = @wikis.find(params[:wiki_id])
+  	@wiki = Wiki.friendly.find(params[:wiki_id])
+  	@collaborators = @wiki.collaborators
   end
 
   def new
@@ -21,11 +18,11 @@ class CollaboratorsController < ApplicationController
   def create
   	@users = User.all
   	@user = User.find(params[:user_id])
-  	@wiki = Wiki.friendly.find(params[:id])
+  	@wiki = Wiki.friendly.find(params[:wiki_id])
   	@collaborator = Collaborator.build( collaborator_params )
   	if @collaborator.save
   		flash[:notice] = "Contributors have been successfully added to this wiki."
-  		redirect_to :show
+  		redirect_to wiki_collaborators_path
   	else
   		flash[:error] = "There was a problem adding contributors.  Please try again."
   		redirect_to :show

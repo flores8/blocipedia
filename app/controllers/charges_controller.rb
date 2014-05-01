@@ -28,8 +28,15 @@ class ChargesController < ApplicationController
 			description: "Premium Wikis",
 			currency: 'usd'
 			)
+		if charge.success # look into this
+			@user = current_user
+			@user.update_attribute(:premium,"upgraded")
+		end
+		
 		flash[:success] = "Congratulations, you now have access to preium wikis"
 		redirect_to charges_confirmation_path
+
+
 
 		# Stripe will send back CardErrors, with friendly messages when something goes wrong.
 		# This rescue block catches and displays those errors.

@@ -2,6 +2,7 @@
 	<div class="row">
 		<%= link_to "< All Wikis", wikis_path %>
 		<h1><%= markdown @wiki.name %></h1>
+		<p><%= link_to "See Collaborators", wiki_collaborators_path(@wiki) %></p>
 		<%= link_to "Create a New Page", new_wiki_page_path(@wiki, @page), class: 'btn btn-success' %>
 		<% if @pages.count > 0 %>
 			<% @pages.each do |p| %>
