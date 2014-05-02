@@ -1,3 +1,63 @@
-// Place all the styles related to the wikis controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "welcome.css.scss";
+
+#wikis {
+	font-family: 'Source Sans Pro', sans-serif;
+	color: $text;
+	h1 {
+		padding: 1em 0;
+	}
+	h2 {
+		padding: 2em 0 .5em; 
+		margin: 0;
+		text-align: center;
+		font-size: 3em;
+	}
+	div.panel {
+		@include border-radius (1px);
+		margin-bottom: 3em;
+	}
+	div.panel-heading {
+		background-color: $blue;
+		border: none;
+		@include border-radius (0px);
+		@include transition (.4s);
+		&:hover {
+			background-color: darken($blue, 10%);
+		}
+		.wiki-name {
+			font-size: 1.5em;
+			text-transform: uppercase;
+			color: $white;
+			&:hover {
+				text-decoration: none;
+			}
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+	div.panel-body {
+		a {
+			@include link-center-out ($blue, .2em, 2px, $blue);
+		}
+	}
+	a.button {
+		@include button ($blue, $white, 1em 3em);
+		font-size: 1.3em;
+	}
+	.show {
+		h3 {
+			padding-bottom: .75em;
+		}
+		p {
+			font-size: 1.3em;
+		}
+		p.no-pages {
+			text-align: center;
+			padding: 2em 0 3em;
+		}
+		a.inline-links {
+			@include link-center-out ($blue, .2em, 2px, $blue);
+		}
+	}
+}

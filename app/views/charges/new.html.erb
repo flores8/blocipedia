@@ -1,11 +1,13 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<%= form_tag charges_path do %>
-				<%= hidden_field_tag :amount, @stripe_btn_hash[:data][:amount] %>
-				<h4>Click the Button!</h4>
-				<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="Premium Wiki ($12)" data-amount="1200"></script>
-			<% end %>			
+<div id="upgrade">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<%= form_tag charges_path do %>
+					<%= hidden_field_tag :amount, @stripe_btn_hash[:data][:amount] %>
+					<h4>Premium Wikis for only $12</h4>
+					<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="Premium Wiki ($12)" data-amount="1200"></script>
+				<% end %>			
+			</div>
 		</div>
 	</div>
 </div>

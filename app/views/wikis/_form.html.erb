@@ -1,40 +1,11 @@
 <%= form_for wiki do |f| %>
+	
+	<%# f.label :private, 'Would you like your wiki to be private?' %>
+	<%# f.check_box(:private, "Yes, make it private.") %>
 
-	<div class="form-group">
-		<%= f.label :name %>
-		<%= f.text_field :name, class: 'form-control', placeholder: "Enter the name of your wiki" %>
-	</div>
+	<%= f.label :name %>
+	<%= f.text_field :name, class: 'form-control', placeholder: "Enter the name of your wiki" %>
 
+	<%= f.submit "Save", class: 'btn btn-success' %>
 
-	<div class="form-group">
-		<div class="panel panel-default">
-			<div class="panel-heading">Add Users to Collaborate with you on this wiki.</div>
-				<div class="table-responsive">
-					<table class="table table-responsive">
-						<thead>
-							<tr>
-								<th>Add Collaborator</th>
-								<th>Name</th>
-								<th>Email</th>
-							</tr>
-						</thead>
-						<% @users.each do |u| %>
-							<tbody>
-								<tr>
-									<td><%= f.check_box(:users) %></td>
-									<td><%= u.name %></td>
-									<td><%= u.email %></td>
-								</tr>
-							</tbody>
-						<% end %>
-					</table>
-				</div>
-					
-			</div>
-		</div>
-	<div class="form-group">
-		<%= f.submit "Save", class: 'btn btn-success' %>
-	</div>
 <% end %>
-
-<%= @users.count %>

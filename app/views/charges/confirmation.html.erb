@@ -1,7 +1,10 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<h3>Congratulations <%= current_user.name.present? ? current_user.name : current_user.email %>, you now have access to preium wikis!</h3>
+<div id="upgrade">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h4>Congratulations <%= current_user.name.present? ? current_user.name : current_user.email %>, you now have access to preium wikis!</h4>
+				<%= link_to "Add One Now", new_wiki_path %>
+			</div>
 		</div>
 	</div>
 </div>

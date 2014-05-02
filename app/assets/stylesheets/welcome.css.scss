@@ -66,6 +66,33 @@ $text:      									 #58595b !default;
 	background-position: 50% 50%;
 }
 
+@mixin link-center-out ($font-color, $spacing, $line-size, $line-color) {
+	color: $font-color;
+	display: inline-block;
+	position: relative;
+	padding-bottom: 5px;
+	&:after {
+		content: '';
+		display: block;
+		margin: $spacing auto 0;
+		height: $line-size;
+		width: 0px;
+		padding: 0 1em;
+		background: transparent;
+		-webkit-transition: width .5s ease, background-color .5s ease;
+		-moz-transition: width .5s ease, background-color .5s ease;
+		-o-transition: width .5s ease, background-color .5s ease;
+		transition: width .5s ease, background-color .5s ease;
+	}
+	&:hover:after {
+		text-decoration: none;
+		width: 100%;
+		background: $line-color;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
 @mixin font-smoothing ($value: on) {
   @if $value == on {
       -webkit-font-smoothing: antialiased;
@@ -126,9 +153,9 @@ $text:      									 #58595b !default;
 	color: $white;
 }
 
-/* Devise Forms
+/* Devise Forms, Wikis Forms
 ================================================== */
-#devise-form {
+#devise-form, #wikis-form {
 	h2 {
 		color: $text;
 		font-size: 2em;
