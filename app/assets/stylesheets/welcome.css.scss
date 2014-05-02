@@ -127,6 +127,50 @@ $brown: 											 #D0A570 !default;
 
 /* Home Page
 ================================================== */
+nav.navbar {
+	background-color: $light;
+	border: none;
+	@include border-radius(0);
+	font-family: 'Source Sans Pro', 'sans-serif';
+	@include transition (.4s);
+	li.nav a {
+		padding: 2.5em 1.5em;
+		margin: 0 .25em;
+	}
+	#blocipedia-nav {
+		li.nav.active a {
+			background-color: $blue;
+			color: $white;
+		}
+	}
+	a.navbar-brand, ul.nav a {
+		color: $gray;
+		top: 0px;
+		&:hover, &:active {
+			@include transition (.4s);
+			background-color: $blue;
+			color: $white;
+		}
+	}
+	#logo {
+		background-color: $purple;
+		padding: 1em;
+		@include border-radius(50%);
+		margin: 1em 2em;
+		line-height: .4em;
+		color: $white;
+		font-size: 1.5em;
+		@include transition (.4s);
+		&:hover {
+			background-color: darken($purple, 15%);
+			@include transition (.4s);
+		}
+	}
+}
+
+
+/* Home Page
+================================================== */
 div.home-big-image {
 	@include image ('home-note.jpg');
 	padding: 12em 0;

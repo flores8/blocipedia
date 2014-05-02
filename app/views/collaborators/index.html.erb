@@ -3,10 +3,11 @@
 		<div class="col-md-12">
 			<h1><%= @wiki.name %> Collaborators:</h1>
 			<% @collaborators.each do |c| %>
-				<p><%= c.user.email %></p>
+				<p><%= c.user.email %> - <%# link_to "edit", wiki_collaborator_path(@wiki, @collaborator) %> </p>
+				<%# link_to "remove", wiki_collaborator_path(@wiki, @collaborator), method: :delete %>
 			<% end %>
 
-			<%= link_to "Edit Collaborators", new_wiki_collaborator_path(@wiki) %>
+			<%= link_to "Add a Collaborator to this Wiki", new_wiki_collaborator_path(@wiki) %>
 			<!-- 
 				1 - Form for 
 				2 - Inside the form loop through all users

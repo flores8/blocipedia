@@ -6,7 +6,7 @@ class CollaboratorsController < ApplicationController
 
   def show
   	@wiki = Wiki.friendly.find(params[:wiki_id])
-  	@collaborators = @wiki.collaborators
+  	@collaborator = @wiki.collaborators.where(:user_id)
   end
 
   def new
@@ -16,7 +16,6 @@ class CollaboratorsController < ApplicationController
   end
 
   def create
-  	@users = User.all
   	@user = User.find(params[:collaborator][:user_id])
   	@wiki = Wiki.friendly.find(params[:wiki_id])
   	@collaborator = @wiki.collaborators.new( collaborator_params )
@@ -30,6 +29,16 @@ class CollaboratorsController < ApplicationController
   end
 
   def destroy
+  	@user = User.find(params[:collaborator][:user_id])
+  	@wiki = Wiki.friendly.find(params[:wiki_id])
+  	@collaborator = @wiki.collaborators.find([:wiki_id, :user_id])
+  	if @collaborator.destroy?
+  		flash[:success] = "Contributor has been removed from this wiki."
+  		redirect_to wiki_collaborators_path
+  	else
+  		flash[:error] = "There was a problem removing contributors. Please try again."
+  		redirect_to :show
+  	end
   end
 
   private 
