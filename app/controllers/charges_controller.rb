@@ -1,4 +1,7 @@
 class ChargesController < ApplicationController
+	protect_from_forgery except: :webhook
+
+	require 'json'
 
 	def new
 		@stripe_btn_hash = {
@@ -28,11 +31,6 @@ class ChargesController < ApplicationController
 			description: "Premium Wikis",
 			currency: 'usd'
 			)
-		if charge.success # look into this
-			@user = current_user
-			@user.update_attribute(:premium,"upgraded")
-		end
-		
 		flash[:success] = "Congratulations, you now have access to preium wikis"
 		redirect_to charges_confirmation_path
 
@@ -46,6 +44,15 @@ class ChargesController < ApplicationController
 	end
 
 	def confirmation
+		event_json = event_json && event_json.length >= 2 ? JSON.parse(request.body.read) : nil
+		#if charge.succeeded 
+		#	@user = current_user
+		#	@user.update_attribute(:premium,"upgraded")
+		#end
 	end
 
+	private
+
+	def webhook
+	end
 end
