@@ -11,6 +11,7 @@ $red: 											   #C8676B !default;
 $gray: 											   #63605E !default;
 $blue: 												 #50AEC5 !default;
 $brown: 											 #D0A570 !default;
+$text:      									 #58595b !default;
 
 
 @mixin border-radius ($px) {
@@ -123,6 +124,74 @@ $brown: 											 #D0A570 !default;
 .alert-danger {
 	background-color: $red;
 	color: $white;
+}
+
+/* Devise Forms
+================================================== */
+#devise-form {
+	h2 {
+		color: $text;
+		font-size: 2em;
+		line-height: 1.6em;
+		text-align: center;
+		padding-top: 2em;
+		font-family: 'Source Sans Pro', sans-serif;
+		text-transform: uppercase;
+	}
+	p {
+		padding: 4em 0 0;
+		color: $text;
+		font-size: 2em;
+		line-height: 1.6em;
+		text-align: center;
+	}
+	label {
+		margin-top: 2em;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 1.5em;
+		line-height: 1.4em;
+	}
+	input[type="text"], input[type="email"], input[type="password"], textarea {
+		background: $light;
+		height: 50px;
+		box-shadow: none;
+		font-size: 1.3em;
+		line-height: 1.4em;
+		font-family: 'Source Sans Pro', sans-serif;
+		color: $text;
+		border: none;
+		@include border-radius (0px);
+		width: 100%;
+		margin: .5em 0;
+		padding-left: .5em;
+		@include transition (.4s);
+		&:focus {
+			border: 2px solid $blue;
+			box-shadow: none;
+			@include transition (.4s);
+		}
+	}
+	textarea {
+		height: 12em;
+		padding: 1em;
+	}
+	input[type="submit"] {
+		@include button ($blue, $white, 1em 3em);
+		@include border-radius (1px);
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		border: none;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 1.3em;
+		text-transform: uppercase;
+		margin-top: 2em;
+		@include transition (.4s);
+		&:hover {
+			background-color: darken($blue, 15%);
+			@include transition (.4s);
+		}
+	}
 }
 
 /* Home Page
