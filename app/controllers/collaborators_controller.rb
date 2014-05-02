@@ -17,9 +17,9 @@ class CollaboratorsController < ApplicationController
 
   def create
   	@users = User.all
-  	@user = User.find(params[:user_id])
+  	@user = User.find(params[:collaborator][:user_id])
   	@wiki = Wiki.friendly.find(params[:wiki_id])
-  	@collaborator = Collaborator.build( collaborator_params )
+  	@collaborator = @wiki.collaborators.new( collaborator_params )
   	if @collaborator.save
   		flash[:notice] = "Contributors have been successfully added to this wiki."
   		redirect_to wiki_collaborators_path

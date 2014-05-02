@@ -1,9 +1,13 @@
 <div class="container">
 	<div class="row">
 		<h2>Add a collaborator: <%= @wiki.name %></h2>
-		<%= form_for @wiki do |f| %>
-			<%= f.select :user_id, User.all.collect { |u| [u.email, u.id] }, include_blank: true %>
+		<%= form_for [@wiki, @collaborator] do |f| %>
+			<%# collection_select(@collaborator, :user_id, User.find(:all), :id, :email, prompt: 'Select a Collaborator') do |b| %>
+				<%# b.label { b.check_box } %>
+			<%# end %>
+			<%= f.select :user_id, User.all.collect { |u| [u.email, u.id] }, prompt: 'Select a Collaborator' %>
 			<%= hidden_field(:wiki, :id) %>
+			<%= hidden_field(:user, :user_id) %>
 			<%= f.submit %>
 		<% end %>
 			
