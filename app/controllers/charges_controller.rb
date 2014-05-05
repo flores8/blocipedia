@@ -23,7 +23,7 @@ class ChargesController < ApplicationController
 			email: current_user.email,
 			card: params[:stripeToken]
 			)
-
+		#binding.pry
 		# Create a charge!
 		charge = Stripe::Charge.create(
 			customer: customer.id,
@@ -31,6 +31,11 @@ class ChargesController < ApplicationController
 			description: "Premium Wikis",
 			currency: 'usd'
 			)
+		
+		if charge.paid 
+			@user = current_user
+			@user.update_attribute(:premium,"upgraded")
+		end
 		flash[:success] = "Congratulations, you now have access to preium wikis"
 		redirect_to charges_confirmation_path
 
