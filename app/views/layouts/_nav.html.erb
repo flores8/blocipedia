@@ -16,7 +16,10 @@
 				<ul class="nav navbar-nav" id="blocipedia-nav">
 					<li class='<%= "nav #{'active' if current_page?(wikis_path)}" %>'><%= link_to "My Wikis", wikis_path %></li>
 					<li class='<%= "nav #{'active' if current_page?(new_wiki_path)}" %>'><%= link_to " ", new_wiki_path, class: "glyphicon glyphicon-plus", alt: "Add a New Wiki" %></li>
-					<li class='<%= "nav #{'active' if current_page?(new_charge_path)}" %>'><%= link_to "Get Premium Wikis", new_charge_path %></li>
+					<% if current_user.premium == "upgraded" %>
+					<% else %>
+						<li class='<%= "nav #{'active' if current_page?(new_charge_path)}" %>'><%= link_to "Get Premium Wikis", new_charge_path %></li>
+					<% end %>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right" id="blocipedia-nav">
