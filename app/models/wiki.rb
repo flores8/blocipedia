@@ -5,7 +5,7 @@ class Wiki < ActiveRecord::Base
 	# Associations
 	has_many :collaborators
 	belongs_to :user, dependent: :destroy
-  has_many :users, through: :collaborators
+  has_many :users, through: :collaborators, uniq: true
   has_many :pages, dependent: :destroy
 
 
@@ -13,4 +13,11 @@ class Wiki < ActiveRecord::Base
 
   # Validations
   validates :name, presence: true
+  validates_associated :users, uniqueness: true
 end
+
+# call-back when wiki is created to make owner the owner/collaborator
+#def make_owner_collaborator
+#  owner_collaborator = Collaborator.build(self, self.user)
+#  owner_collaborator.save
+#end

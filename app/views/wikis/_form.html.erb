@@ -1,7 +1,11 @@
 <%= form_for wiki do |f| %>
 	
-	<%# f.label :private, 'Would you like your wiki to be private?' %>
-	<%# f.check_box(:private, "Yes, make it private.") %>
+	<% if current_user.premium == "upgraded" %>
+		<%# f.label :private, 'Would you like your wiki to be private?' %>
+		<%# f.check_box(:private, "Yes, make it private.") %>
+	<% else %>
+		<p>Not upgraded</p>
+	<% end %>
 
 	<%= f.label :name %>
 	<%= f.text_field :name, class: 'form-control', placeholder: "Enter the name of your wiki" %>

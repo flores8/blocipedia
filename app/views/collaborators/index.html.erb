@@ -3,8 +3,8 @@
 		<div class="col-md-12">
 			<h1><%= @wiki.name %> Collaborators:</h1>
 			<% @collaborators.each do |c| %>
-				<p><%= c.user.email %> - <%# link_to "edit", wiki_collaborator_path(@wiki, @collaborator) %> </p>
-				<%= link_to "remove", wiki_collaborator_path(@wiki, c), method: :delete %>
+				<p><%= c.user.email %> - <%= link_to "remove", wiki_collaborator_path(@wiki, c), method: :delete %> </p>
+				
 			<% end %>
 
 			<%= link_to "Add a Collaborator to this Wiki", new_wiki_collaborator_path(@wiki) %>
