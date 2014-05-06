@@ -1,6 +1,6 @@
 <div id="wikis">
 	<div class="container">
-		<h1><%= @wikis.count %> Wikis:</h1>
+		<h1><%= @wikis.count %> Wikis I Own:</h1>
 		<% if @wikis.count > 0 %>
 			<% @wikis.each do |w| %>
 			<div class="panel panel-default">
@@ -26,6 +26,10 @@
 			<h3>Create your first wiki!</h3>
 			<%= render partial: 'form', locals: { wiki: @wiki} %>
 			
+		<% end %>
+
+		<% if @wiki_collaborations.count > 0 %>
+			<h1><%= @wiki_collaborations.count %> Wikis I Collaborate On:</h1>
 		<% end %>
 	</div>
 </div>

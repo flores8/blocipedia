@@ -5,6 +5,8 @@ class WikisController < ApplicationController
     #binding.pry
   	@wikis = current_user.wikis.all
     @wiki = current_user.wikis.new
+    @collaborations = Collaborator.where(user_id: current_user.id)
+    @wiki_collaborations = @collaborations.where(wiki_id: @wiki.id)
   end
 
   def show
