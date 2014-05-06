@@ -1,17 +1,20 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<%= link_to "< Back to Wiki", @wiki %>
-			<h1><%= markdown @page.title %></h1>
-			<small>
-				Page found in: <%= markdown @wiki.name %>
-			</small>
-			<%= link_to "Edit", edit_wiki_page_path(@wiki, @page) %> | <%= link_to "Delete Page", wiki_page_path(@wiki, @page), method: :delete %>
-			<p><%= markdown @page.body %></p>
-			<small>
-				Page created by: <%= @page.user.name %> <%= time_ago_in_words(@page.created_at) %> ago.
-			</small>
+<div id="wikis">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<%= link_to "< Back to Wiki", @wiki %>
+				<h1><%= markdown @page.title %></h1>
+				<%= link_to "Edit", edit_wiki_page_path(@wiki, @page) %> | <%= link_to "Delete Page", wiki_page_path(@wiki, @page), method: :delete %>
+				<p><%= markdown @page.body %></p>
+				<small>
+					Page created by: <%= @page.user.name %> <%= time_ago_in_words(@page.created_at) %> ago.
+				</small>
+				<div class="pull-right">
+					<small>
+						<%= link_to (markdown @wiki.name), @wiki %>
+					</small>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
-			
+</div>			
