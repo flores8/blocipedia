@@ -22,7 +22,8 @@ users = User.all
 15.times do 
 	Wiki.create(
 		user: 		users.sample,
-		name: 		Faker::Lorem.sentence
+		name: 		Faker::Lorem.sentence,
+		private: false
 		)
 end
 wikis = Wiki.all

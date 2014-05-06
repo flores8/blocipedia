@@ -1,17 +1,26 @@
-<%= form_for wiki do |f| %>
-	
-	<div class="form-group">
-		<% if current_user.premium == "upgraded" %>
-			<%= f.check_box :private, value: true %>
-			<%= f.label :private, 'Make my wiki private' %>
-		<% else %>
-			<p>Not upgraded</p>
-		<% end %>
+<div id="wikis-form">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<%= form_for wiki do |f| %>
+					
+						
+					<% if current_user.premium == "upgraded" %>
+						<div class="form-group">
+							<%= f.check_box :private, value: true %>
+							<%= f.label :private, 'Make my wiki private' %>
+						</div>
+					<% end %>
+					
+
+					<%= f.label :name %>
+					<%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: "Enter the name of your wiki" %>
+
+					<%= f.submit "Save", class: 'btn btn-success' %>
+
+				<% end %>
+			</div>
+		</div>
 	</div>
-
-	<%= f.label :name %>
-	<%= f.text_field :name, class: 'form-control', placeholder: "Enter the name of your wiki" %>
-
-	<%= f.submit "Save", class: 'btn btn-success' %>
-
-<% end %>
+</div>

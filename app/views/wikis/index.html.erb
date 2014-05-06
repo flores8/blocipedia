@@ -8,6 +8,8 @@
 					<%= link_to (markdown w.name), w, class: "wiki-name" %>
 				</div>
 				<div class="panel-body">
+					<p><%= "[PRIVATE WIKI]" if w.private %></p>
+					<p class="pull-right">Test<%# "Owner" if w. %></p>
 					<p><%= link_to "Edit Name", edit_wiki_path(w) %></p>
 					<p><%= link_to "#{w.pages.count} pages", w %></p>
 					<p><%= w.collaborators.count %> Collaborators - <%= link_to "Add or Remove Collaborators", wiki_collaborators_path(w) %></p>
@@ -15,6 +17,7 @@
 						Wiki created by: <%= w.user.name.present? ? w.user.name : w.user.email %> <%= time_ago_in_words(w.created_at) %> ago.
 						<!-- Longer way of doing this is: if w.user.name.present? then w.user.name else w.user.email end --> 
 					</small>
+					<p><%= link_to "Delete Wiki", wiki_path(w), method: :delete %></p>
 				</div>
 			</div>
 				

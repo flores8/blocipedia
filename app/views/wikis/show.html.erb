@@ -15,6 +15,9 @@
 					<p class="no-pages">No pages yet. <%= link_to "Create one now", new_wiki_page_path(@wiki, @page), class: "inline-links" %>.</p>
 				<% end %>
 				<p><%= link_to "< All Wikis", wikis_path, class: 'inline-links' %> | <%= link_to "See Collaborators", wiki_collaborators_path(@wiki), class: "inline-links" %></p>
+				<p class="pull-right">
+					<%= link_to "Delete Wiki", wiki_path(@wiki), confirm: "If you delete this wiki you will also remove all pages. Are you sure you want to proceed?", method: :delete %>
+				</p>
 			</div>
 		</div>
 	</div>

@@ -4,12 +4,13 @@ class Wiki < ActiveRecord::Base
 
 	# Associations
 	has_many :collaborators
-	belongs_to :user, dependent: :destroy
-  has_many :users, through: :collaborators, uniq: true
+	belongs_to :user
+  has_many :users, through: :collaborators
   has_many :pages, dependent: :destroy
 
 
   default_scope { order('created_at DESC') }
+  #scope :private, -> { where(private: true) }
 
   # Validations
   validates :name, presence: true

@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   has_many :wikis
   has_many :pages, dependent: :destroy
 
+  def role?(base_role)
+  	role == base_role.to_s
+  end
+
 end

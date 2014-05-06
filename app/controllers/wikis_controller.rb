@@ -10,16 +10,21 @@ class WikisController < ApplicationController
   def show
   	@wiki = Wiki.friendly.find(params[:id])
     @pages = @wiki.pages.includes(:user)
+
+    authorize @wiki if @wiki.private
   end
 
   def new
     @users = User.all
   	@wiki = Wiki.new
+    authorize @wiki
   end
 
   def create
   	@wiki = current_user.wikis.build( wiki_params )
+    @wiki.private = false
   	if @wiki.save
+      @collaborator = Collaborator.create(user_id: current_user.id, wiki_id: @wiki.id, role: "owner")
   		flash[:notice] = "Your wiki was created."
   		redirect_to @wiki
   	else
@@ -47,7 +52,7 @@ class WikisController < ApplicationController
   def destroy
   	@wiki = Wiki.friendly.find(params[:id])
   	if @wiki.destroy
-  		flash[:notice] = "Your wiki was removed"
+  		flash[:notice] = "Your wiki was removed."
   		redirect_to wikis_path
   	else
   		flash[:notice] = "Your wiki was not removed. Please try again."
