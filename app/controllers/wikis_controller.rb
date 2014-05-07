@@ -1,5 +1,5 @@
 class WikisController < ApplicationController
-	before_filter :authenticate_user!
+	before_filter :authenticate_user!, except: [:show]
 
   def index
     #binding.pry
