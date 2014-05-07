@@ -1,4 +1,6 @@
 class CollaboratorsController < ApplicationController
+  before_filter :authenticate_user!, :upgraded_users
+
   def index
   	@wiki = Wiki.friendly.find(params[:wiki_id])
   	@collaborators = @wiki.collaborators
@@ -49,6 +51,15 @@ class CollaboratorsController < ApplicationController
   end
 
   private 
+
+  def upgraded_users
+    if current_user.premium == "upgraded"
+      flash[:success] = "Welcome to the premium section."
+    else
+      flash[:error] = "You must upgrade to premium membership in order to add or edit collaborators."
+      redirect_to wikis_path
+    end
+  end
 
   def collaborator_params
   	params.require(:collaborator).permit(:user_id, :wiki_id)

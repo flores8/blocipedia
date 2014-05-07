@@ -9,7 +9,6 @@
 				</div>
 				<div class="panel-body">
 					<p><%= "[PRIVATE WIKI]" if w.private %></p>
-					<p class="pull-right">Test<%# "Owner" if w. %></p>
 					<p><%= link_to "Edit Name", edit_wiki_path(w) %></p>
 					<p><%= link_to "#{w.pages.count} pages", w %></p>
 					<p><%= w.collaborators.count %> Collaborators - <%= link_to "Add or Remove Collaborators", wiki_collaborators_path(w) %></p>
@@ -28,8 +27,11 @@
 			
 		<% end %>
 
-		<% if @wiki_collaborations.count > 0 %>
-			<h1><%= @wiki_collaborations.count %> Wikis I Collaborate On:</h1>
+		<% if @collaborations.count > 0 %>
+			<h1><%= @collaborations.count %> Wikis I Collaborate On:</h1>
+			<% @collaborations.each do |c| %>
+				<p><%= link_to c.wiki.name, wiki_path(c.wiki) %></p>
+			<% end %>
 		<% end %>
 	</div>
 </div>
