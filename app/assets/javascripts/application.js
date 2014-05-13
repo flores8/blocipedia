@@ -15,3 +15,26 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+var sendTrackableEvent = function(web_property_id, type, location){
+	var _bm_event = {
+	  web_property_id: web_property_id,
+	  type: type,
+	  location: location
+	}
+
+	var _bm_request = $.ajax({
+	  url: "http://localhost:4000/events",
+	  method: "post",
+	  data: {event: _bm_event}
+	})
+}
+$(document).ready(function(){
+	sendTrackableEvent("22", "page view", window.location.origin)
+
+	$("a.trackable").click(function(){
+			alert( "test" );
+			sendTrackableEvent("22", "click", $(this).data("track"));
+		}
+	)
+})

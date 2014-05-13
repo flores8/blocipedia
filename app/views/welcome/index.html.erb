@@ -8,7 +8,7 @@
 					<% if user_signed_in? %>
 						<%= link_to "View My Wikis", wikis_path %>
 					<% else %>
-						<%= link_to "Get My Free Account", new_user_registration_path %>
+						<%= link_to "Get My Free Account", new_user_registration_path, class: "trackable", "data-track" => "sign-up-home" %>
 					<% end %>
 				</div>
 			</div><!-- div.col-md-12 --> 
