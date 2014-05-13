@@ -30,11 +30,11 @@ var sendTrackableEvent = function(web_property_id, type, location){
 	})
 }
 $(document).ready(function(){
-	sendTrackableEvent("22", "page view", window.location.origin)
+	sendTrackableEvent("1234", "pageview", window.location.origin)
 
 	$("a.trackable").click(function(){
 			alert( "test" );
-			sendTrackableEvent("22", "click", $(this).data("track"));
+			sendTrackableEvent("1234", "click", $(this).data("track"));
 		}
 	)
 })
