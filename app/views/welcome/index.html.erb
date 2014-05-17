@@ -6,7 +6,7 @@
 				<h2>collaborate with friends</h2>
 				<div id="home-call-above-fold">
 					<% if user_signed_in? %>
-						<%= link_to "View My Wikis", wikis_path %>
+						<%= link_to "View My Wikis", wikis_path, class: "trackable", "data-track" => "home-view-my-wikis" %>
 					<% else %>
 						<%= link_to "Get My Free Account", new_user_registration_path, class: "trackable", "data-track" => "sign-up-home" %>
 					<% end %>
