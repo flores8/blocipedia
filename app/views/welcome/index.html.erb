@@ -58,15 +58,14 @@
 
 <div class="choose-plan">
 	<div class="container">
+
 		<div class="row">
 			<div class="free">
 				<div class="col-md-8">
 					<p>Create as many public wikis as you want.  Really.  As many as you want.</p>
-					<%= link_to "Sign Up for Free",	new_user_registration_path %>
 				</div>
-
 				<div class="col-md-4">
-					
+					<%= link_to "Sign Up for Free",	new_user_registration_path %>
 				</div>
 			</div><!-- div.free --> 
 		</div><!-- div.row --> 
@@ -74,12 +73,12 @@
 		<div class="row">
 			<div class="paid">
 				<div class="col-md-4">
+					<%= link_to "Get My Private Wiki", new_user_registration_path %>
 					
 				</div>
 
 				<div class="col-md-8">
-					<p>Add collaborators.  Make your wikis private.</p>
-					<%= link_to "Get My Private Wiki", new_user_registration_path %>
+					<p>Add collaborators.  And make your wikis private for $5.</p>
 				</div>
 			</div><!-- div.paid --> 
 		</div><!-- div.row --> 

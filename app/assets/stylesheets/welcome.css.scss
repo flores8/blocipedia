@@ -330,3 +330,18 @@ div.choose-plan {
 		margin-bottom: 20em;
 	}
 }
+
+.free, .paid {
+	p {
+		padding-top: 3em;
+	}
+}
+
+.paid {
+	background-color: $blue;
+}
+
+footer {
+	padding: 3em 0;
+	text-align: center;
+}
